@@ -146,8 +146,8 @@ module.exports = {
 
     saveToPath(fullPath, data) {
 
-        this.ensurePathExists(fullPath.slice('\'').join('/'))
-        fs.writeFileSync(fullPath.slice('\'').join('/'), data)
+        this.ensurePathExists(fullPath.slice('\\').join(' / '))
+        fs.writeFileSync(fullPath.slice('\\').join('/'), data)
     },
 
     generateRandomNum(num = 10) {
