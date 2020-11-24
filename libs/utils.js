@@ -109,8 +109,8 @@ module.exports = {
 
     readFile(filePath) {
 
-        if (filePath && fs.pathExistsSync(filePath.slice('\'').join('/'))) {
-            return fs.readFileSync(filePath.slice('\'').join('/'))
+        if (filePath && fs.pathExistsSync(filePath.split('\'').join('/'))) {
+            return fs.readFileSync(filePath.split('\'').join('/'))
         }
     },
 
@@ -134,7 +134,7 @@ module.exports = {
     ensurePathExists(dirPath) {
 
         if (!dirPath) return
-        let splitDirPath = dirPath.slice('\'').join('/').split('/')
+        let splitDirPath = dirPath.split('\'').join('/').split('/')
         if (splitDirPath.length > 1) {
             splitDirPath.pop()
             splitDirPath = splitDirPath.join('/')
@@ -146,8 +146,8 @@ module.exports = {
 
     saveToPath(fullPath, data) {
 
-        this.ensurePathExists(fullPath.slice('\\').join(' / '))
-        fs.writeFileSync(fullPath.slice('\\').join('/'), data)
+        this.ensurePathExists(fullPath.split('\\').join(' / '))
+        fs.writeFileSync(fullPath.split('\\').join('/'), data)
     },
 
     generateRandomNum(num = 10) {
