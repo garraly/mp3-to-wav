@@ -56,7 +56,7 @@ class Mp32Wav {
 
         if (!filename) filename = 'temp-' + utils.generateTimestampRandom()
         const fileFullName = filename + '.wav'
-        const fileFullPath = path.join(savePath, fileFullName)
+        const fileFullPath = path.join(savePath, fileFullName).split('\\').join('/')
 
         try {
             const wavData = wav.encode(buffer, { sampleRate: sampleRate, float: float, channels: channels })
